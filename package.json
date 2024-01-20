@@ -1,0 +1,31 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently --kill-others 'npm run esbuild:dev' 'npm run server:dev'",
+    "esbuild:dev": "esbuild --watch --bundle ./src/index.ts --outfile=./public/index.js",
+    "server:dev": "nodemon --ignore 'src' --ignore 'data' app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ws": "^8.5.10",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.19.11",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "vite": "^5.0.11"
+  },
+  "dependencies": {
+    "@fastify/static": "^6.12.0",
+    "@fastify/vite": "^5.0.6",
+    "@fastify/websocket": "^8.3.1",
+    "fastify": "^4.25.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

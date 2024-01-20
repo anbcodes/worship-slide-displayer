@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 500px;
+        margin: auto;
+      }
+
+      button {
+        background-color: white;
+        border: gray 1px solid;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: inherit;
+      }
+
+      button:hover {
+        filter: brightness(90%);
+      }
+      .fullscreen {
+        z-index: 20;
+        background-color: black;
+        position: absolute !important;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        font-size: 250%;
+      }
+      video,
+      #lyric-container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #rendered {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #rendered:not(.fullscreen) {
+        height: 400px;
+      }
+
+      video {
+        transition: opacity 2s;
+      }
+
+      #lyric-container {
+        transition: opacity 0.25s;
+      }
+
+      #current-lyric {
+        z-index: 20;
+        text-align: center;
+        color: white;
+        font-size: 200%;
+        font-weight: bold;
+      }
+
+      summary {
+        font-size: xx-large;
+        text-align: center;
+      }
+
+      #controls {
+        margin-top: 40px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .slides {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px;
+      }
+
+      .slide-control {
+        border: solid gray 2px;
+        border-radius: 10px;
+        padding: 5px;
+        max-width: 400px;
+        width: 100%;
+        min-width: 0px;
+      }
+
+      .selected {
+        border: solid rgb(0, 68, 255) 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rendered">
+      <div id="lyric-container">
+        <div id="current-lyric"></div>
+      </div>
+      <video autoplay loop muted id="background-video"></video>
+    </div>
+    <div id="controls"></div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
