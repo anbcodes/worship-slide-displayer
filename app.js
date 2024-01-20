@@ -42892,7 +42892,7 @@ fastify.register(async function(fastify2) {
     });
   });
 });
-fastify.listen({ port: 4e3, host: "0.0.0.0" }).then(() => {
+fastify.listen({ port: +(process.argv[2] ?? 4e3), host: "0.0.0.0" }).then(() => {
   console.log("Fastify started on http://localhost:4000");
 });
 /*! Bundled license information:

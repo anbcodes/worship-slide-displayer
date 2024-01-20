@@ -40,6 +40,6 @@ fastify.register(async function (fastify) {
   })
 })
 
-fastify.listen({ port: 4000, host: '0.0.0.0' }).then(() => {
+fastify.listen({ port: +(process.argv[2] ?? 4000), host: '0.0.0.0' }).then(() => {
   console.log("Fastify started on http://localhost:4000");
 });
