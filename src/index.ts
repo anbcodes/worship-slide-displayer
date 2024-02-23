@@ -105,7 +105,7 @@ let lyricContainer = $("#lyric-container");
     fetch(`/data/${song.url}`).then((res) => res.text()).then((text) => {
       const sections = text.split(/^#/gm).filter(v => v.trim()).map(v => ({
         name: v.split('\n')[0].trim(),
-        slides: v.split('\n').slice(1).join('\n').split('\n\n').filter(v => v.trim()).map(v => v.trim().replace(/\n/g, "<br>")),
+        slides: ["  ", ...v.split('\n').slice(1).join('\n').split('\n\n').filter(v => v.trim()).map(v => v.trim().replace(/\n/g, "<br>"))],
       }));
       song.sections = sections;
       sections.forEach(sec => {

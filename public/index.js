@@ -84,7 +84,7 @@
       fetch(`/data/${song.url}`).then((res) => res.text()).then((text) => {
         const sections = text.split(/^#/gm).filter((v) => v.trim()).map((v) => ({
           name: v.split("\n")[0].trim(),
-          slides: v.split("\n").slice(1).join("\n").split("\n\n").filter((v2) => v2.trim()).map((v2) => v2.trim().replace(/\n/g, "<br>"))
+          slides: ["  ", ...v.split("\n").slice(1).join("\n").split("\n\n").filter((v2) => v2.trim()).map((v2) => v2.trim().replace(/\n/g, "<br>"))]
         }));
         song.sections = sections;
         sections.forEach((sec) => {
