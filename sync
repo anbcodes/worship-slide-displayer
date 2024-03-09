@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -r ./data/ serverblue:~/worship-slide-displayer/data
+rsync -r --copy-links ./data/ serverblue:~/worship-slide-displayer/data
